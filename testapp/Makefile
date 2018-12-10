@@ -19,6 +19,8 @@ OBJCOPY = $(TOOLCHAIN)-objcopy
 DUMP = $(TOOLCHAIN)-objdump -d
 GDB = $(TOOLCHAIN)-gdb
 
+
+
 ###############################################################################
 
 OBJS = testapp.o
@@ -30,4 +32,4 @@ testapp.o:	main.cpp
 
 
 clean:
-	rm -f *.o 
+	rm -f *.o

@@ -13,6 +13,7 @@ struct EnableBitMaskOperators<x>     \
 };
 
 namespace stm32{
+namespace internals{
 
     template<typename Enum>
     struct EnableBitMaskOperators{
@@ -113,7 +114,9 @@ namespace stm32{
             static_cast<uint32_t>(rhs) );
         return lhs;
     };
-};
+
+    
+};}; // End namespace std::internals
 
 
 

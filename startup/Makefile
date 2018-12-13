@@ -5,7 +5,7 @@ TOOLCHAIN = arm-none-eabi
 
 
 # GCC OPTIONS
-CC_OPTIONS  = -fno-exceptions -std=gnu++11 -nostdlib
+CC_OPTIONS  = -fno-exceptions -std=gnu++14 -nostdlib
 # CPU RELATED OPTIONS
 CC_OPTIONS += -mcpu=cortex-m3 -mthumb
 # OPTIMIZATION OPTIONS

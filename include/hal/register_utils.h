@@ -14,6 +14,8 @@ struct EnableRegister<x>            \
 };
 
 namespace stm32{
+namespace internals{
+    
   // EnableRegister
   template<typename Enum>
   struct EnableRegister{
@@ -64,28 +66,83 @@ namespace stm32{
   constexpr uint32_t Bit29  = (1ul << 29);
   constexpr uint32_t Bit30  = (1ul << 30);
   constexpr uint32_t Bit31  = (1ul << 31);
+  
+  
 
-  template <typename Enum>
-  typename enable_if<EnableRegister<Enum>::enable, void>::type
-  constexpr inline write (Enum value){
-      *(reinterpret_cast<volatile Enum*>(EnableRegister<Enum>::address)) = value;
+    
+  template<typename Enum, uint32_t Address>
+  class Register{
+  public:
+      Register() = default;
+      static constexpr void set(Enum v){
+          *(getAddress()) = v;
+      };
+      static constexpr Enum get(){
+          return *getAddress();
+      };
+      static constexpr void setBit(uint32_t bit){
+          *getBitBandAddress(bit) = 1;
+      };
+      static constexpr void clearBit(uint32_t bit){
+          *getBitBandAddress(bit) = 0;
+      };
+      static constexpr bool readBit(uint32_t bit){
+          return (*getBitBandAddress(bit));
+      };
+  private:
+      static constexpr volatile Enum* getAddress(){
+          return (reinterpret_cast<volatile Enum*>(Address));
+      };
+      static constexpr volatile uint32_t* getBitBandAddress(const uint32_t bit=0ul){
+          return (reinterpret_cast<volatile uint32_t*>(0x42000000+(Address-0x40000000)*32+bit*4));
+      };
   };
-  template <typename Enum>
-  typename enable_if<EnableRegister<Enum>::enable, Enum>::type
-  constexpr inline read(){
-      return (*(reinterpret_cast<volatile Enum*>(EnableRegister<Enum>::address)));
-  };
+  
+  
   
   template <typename Enum, uint8_t width, uint8_t shift>
   class Value{
   public:
       Value() = default;
-      constexpr Enum operator() (uint32_t v){
+//       constexpr Enum operator() (uint32_t v) const{
+//           return static_cast<Enum>( ( v & ( (1<<width) - 1 ) ) << shift );
+//           //return static_cast<Enum>(1);
+//       };
+      static constexpr Enum eval(uint32_t v){
           return static_cast<Enum>( ( v & ( (1<<width) - 1 ) ) << shift );
           //return static_cast<Enum>(1);
       };
-  private:
+      static constexpr uint32_t get(Enum r){
+          return ( (static_cast<uint32_t>(r) >> shift) & ( (1<<width) - 1 ) );
+      };
+      template<uint32_t Address>
+      static constexpr uint32_t get(Register<Enum, Address> r) {
+          return ( (static_cast<uint32_t>(r.get()) >> shift) & ( (1<<width) - 1 ) );
+      };
   };
+  
+  template <typename Enum, typename ConfigEnum, uint8_t width, uint8_t shift>
+  class Configuration{
+  public:
+      Configuration() = default;
+//       constexpr Enum operator() (uint32_t v) const{
+//           return static_cast<Enum>( ( v & ( (1<<width) - 1 ) ) << shift );
+//           //return static_cast<Enum>(1);
+//       };
+      static constexpr Enum eval(ConfigEnum v){
+          return static_cast<Enum>( ( static_cast<uint32_t>(v) & ( (1<<width) - 1 ) ) << shift );
+          //return static_cast<Enum>(1);
+      };
+      static constexpr ConfigEnum get(Enum r){
+          return static_cast<ConfigEnum>( (static_cast<uint32_t>(r) >> shift) & ( (1<<width) - 1 ) );
+      };
+      template<uint32_t Address>
+      static constexpr ConfigEnum get(Register<Enum, Address> r) {
+          return static_cast<ConfigEnum>( (static_cast<uint32_t>(r.get()) >> shift) & ( (1<<width) - 1 ) );
+      };
+  };
+  
+  
   
 //   template <typename Enum, uint32_t Address>
 //   class Register{
@@ -134,7 +191,7 @@ namespace stm32{
 //           return reinterpret_cast<const volatile uint32_t*>(0x42000000+(Address-0x40000000)*32+bit*4);
 //       };
 //   };
-
-};
+  
+}; }; // End namespace std::internals
 
 #endif // __STM32_REGISTER_UTILS_H__

@@ -75,6 +75,29 @@ namespace stm32{
   constexpr inline read(){
       return (*(reinterpret_cast<volatile Enum*>(EnableRegister<Enum>::address)));
   };
+  
+  template <typename Enum, uint8_t width, uint8_t shift>
+  class Value{
+  public:
+      Value() = default;
+      constexpr Enum operator() (uint32_t v){
+          return static_cast<Enum>( ( v & ( (1<<width) - 1 ) ) << shift );
+          //return static_cast<Enum>(1);
+      };
+  private:
+  };
+  
+//   template <typename Enum, uint32_t Address>
+//   class Register{
+//   public:
+//       Register() = default;
+//   private:
+//       inline volatile uint32_t *getAddress(){
+//           return reinterpret_cast<volatile uint32_t*>(Address);
+//     };
+//   };
+  
+  
 
 
 //   // Register type

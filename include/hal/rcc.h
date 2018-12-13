@@ -14,7 +14,6 @@ enum class RCC_RC : uint32_t{
   HSITRIM_2     =  Bit05,
   HSITRIM_3     =  Bit06,
   HSITRIM_4     =  Bit07,
-  HSITRIM_MASK  =  Bit03 | Bit03 | Bit04 | Bit05 | Bit06 | Bit07,
   HSICAL_0      =  Bit08,
   HSICAL_1      =  Bit09,
   HSICAL_2      =  Bit10,
@@ -23,7 +22,6 @@ enum class RCC_RC : uint32_t{
   HSICAL_5      =  Bit13,
   HSICAL_6      =  Bit14,
   HSICAL_7      =  Bit15,
-  HSICAL_MASK   =  Bit08 | Bit09 | Bit10 | Bit11 | Bit12 | Bit13 | Bit14 | Bit15 ,
   HSEON         =  Bit16,
   HSERDY        =  Bit17,
   HSEBYP        =  Bit18,
@@ -33,6 +31,25 @@ enum class RCC_RC : uint32_t{
 };
 ENABLE_BITMASK_OPERATORS(RCC_RC)
 ENABLE_REGISTER(RCC_RC, 0x40021000)
+
+// template<typename Enum, uint32_t Address>
+// class Flags{
+// public:
+//   Flags(){
+//     value = 0;
+//   };
+//   Flags(Enum e){
+//     value = static_cast<uint32_t>(e);
+//   };
+//   void set(Enum e){
+//     value = static_cast<uint32_t>(e);
+//   };
+// public:
+//   uint32_t value;
+//   uint32_t address = Address;
+// };
+
+
 
 
 

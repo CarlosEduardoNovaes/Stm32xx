@@ -10,6 +10,8 @@ CC_OPTIONS  = -fno-exceptions -std=gnu++14 -nostdlib
 CC_OPTIONS += -mcpu=cortex-m3 -mthumb
 # OPTIMIZATION OPTIONS
 CC_OPTIONS += -O3
+# INCLUDES
+CC_OPTIONS += -I../include
 CC = $(TOOLCHAIN)-g++ $(CC_OPTIONS)
 
 # TOOLS

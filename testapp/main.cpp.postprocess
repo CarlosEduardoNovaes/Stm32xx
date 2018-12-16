@@ -1,0 +1,974 @@
+# 1 "main.cpp"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<command-line>" 2
+# 1 "main.cpp"
+
+# 1 "../include/hal/rcc.h" 1
+
+
+
+# 1 "../include/hal/register_utils.h" 1
+
+
+
+# 1 "/usr/lib/gcc/x86_64-linux-gnu/8/include/stdint.h" 1 3 4
+# 9 "/usr/lib/gcc/x86_64-linux-gnu/8/include/stdint.h" 3 4
+# 1 "/usr/include/stdint.h" 1 3 4
+# 26 "/usr/include/stdint.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 1 3 4
+# 33 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 3 4
+# 1 "/usr/include/features.h" 1 3 4
+# 424 "/usr/include/features.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 1 3 4
+# 442 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
+# 443 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/long-double.h" 1 3 4
+# 444 "/usr/include/x86_64-linux-gnu/sys/cdefs.h" 2 3 4
+# 425 "/usr/include/features.h" 2 3 4
+# 448 "/usr/include/features.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 1 3 4
+# 10 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/gnu/stubs-64.h" 1 3 4
+# 11 "/usr/include/x86_64-linux-gnu/gnu/stubs.h" 2 3 4
+# 449 "/usr/include/features.h" 2 3 4
+# 34 "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h" 2 3 4
+# 27 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/types.h" 1 3 4
+# 27 "/usr/include/x86_64-linux-gnu/bits/types.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
+# 28 "/usr/include/x86_64-linux-gnu/bits/types.h" 2 3 4
+
+
+
+# 30 "/usr/include/x86_64-linux-gnu/bits/types.h" 3 4
+typedef unsigned char __u_char;
+typedef unsigned short int __u_short;
+typedef unsigned int __u_int;
+typedef unsigned long int __u_long;
+
+
+typedef signed char __int8_t;
+typedef unsigned char __uint8_t;
+typedef signed short int __int16_t;
+typedef unsigned short int __uint16_t;
+typedef signed int __int32_t;
+typedef unsigned int __uint32_t;
+
+typedef signed long int __int64_t;
+typedef unsigned long int __uint64_t;
+
+
+
+
+
+
+typedef __int8_t __int_least8_t;
+typedef __uint8_t __uint_least8_t;
+typedef __int16_t __int_least16_t;
+typedef __uint16_t __uint_least16_t;
+typedef __int32_t __int_least32_t;
+typedef __uint32_t __uint_least32_t;
+typedef __int64_t __int_least64_t;
+typedef __uint64_t __uint_least64_t;
+
+
+
+typedef long int __quad_t;
+typedef unsigned long int __u_quad_t;
+
+
+
+
+
+
+
+typedef long int __intmax_t;
+typedef unsigned long int __uintmax_t;
+# 140 "/usr/include/x86_64-linux-gnu/bits/types.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/typesizes.h" 1 3 4
+# 141 "/usr/include/x86_64-linux-gnu/bits/types.h" 2 3 4
+
+
+typedef unsigned long int __dev_t;
+typedef unsigned int __uid_t;
+typedef unsigned int __gid_t;
+typedef unsigned long int __ino_t;
+typedef unsigned long int __ino64_t;
+typedef unsigned int __mode_t;
+typedef unsigned long int __nlink_t;
+typedef long int __off_t;
+typedef long int __off64_t;
+typedef int __pid_t;
+typedef struct { int __val[2]; } __fsid_t;
+typedef long int __clock_t;
+typedef unsigned long int __rlim_t;
+typedef unsigned long int __rlim64_t;
+typedef unsigned int __id_t;
+typedef long int __time_t;
+typedef unsigned int __useconds_t;
+typedef long int __suseconds_t;
+
+typedef int __daddr_t;
+typedef int __key_t;
+
+
+typedef int __clockid_t;
+
+
+typedef void * __timer_t;
+
+
+typedef long int __blksize_t;
+
+
+
+
+typedef long int __blkcnt_t;
+typedef long int __blkcnt64_t;
+
+
+typedef unsigned long int __fsblkcnt_t;
+typedef unsigned long int __fsblkcnt64_t;
+
+
+typedef unsigned long int __fsfilcnt_t;
+typedef unsigned long int __fsfilcnt64_t;
+
+
+typedef long int __fsword_t;
+
+typedef long int __ssize_t;
+
+
+typedef long int __syscall_slong_t;
+
+typedef unsigned long int __syscall_ulong_t;
+
+
+
+typedef __off64_t __loff_t;
+typedef char *__caddr_t;
+
+
+typedef long int __intptr_t;
+
+
+typedef unsigned int __socklen_t;
+
+
+
+
+typedef int __sig_atomic_t;
+# 28 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wchar.h" 1 3 4
+# 29 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
+# 30 "/usr/include/stdint.h" 2 3 4
+
+
+
+
+# 1 "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h" 1 3 4
+# 24 "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h" 3 4
+typedef __int8_t int8_t;
+typedef __int16_t int16_t;
+typedef __int32_t int32_t;
+typedef __int64_t int64_t;
+# 35 "/usr/include/stdint.h" 2 3 4
+
+
+# 1 "/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h" 1 3 4
+# 24 "/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h" 3 4
+typedef __uint8_t uint8_t;
+typedef __uint16_t uint16_t;
+typedef __uint32_t uint32_t;
+typedef __uint64_t uint64_t;
+# 38 "/usr/include/stdint.h" 2 3 4
+
+
+
+
+
+typedef __int_least8_t int_least8_t;
+typedef __int_least16_t int_least16_t;
+typedef __int_least32_t int_least32_t;
+typedef __int_least64_t int_least64_t;
+
+
+typedef __uint_least8_t uint_least8_t;
+typedef __uint_least16_t uint_least16_t;
+typedef __uint_least32_t uint_least32_t;
+typedef __uint_least64_t uint_least64_t;
+
+
+
+
+
+typedef signed char int_fast8_t;
+
+typedef long int int_fast16_t;
+typedef long int int_fast32_t;
+typedef long int int_fast64_t;
+# 71 "/usr/include/stdint.h" 3 4
+typedef unsigned char uint_fast8_t;
+
+typedef unsigned long int uint_fast16_t;
+typedef unsigned long int uint_fast32_t;
+typedef unsigned long int uint_fast64_t;
+# 87 "/usr/include/stdint.h" 3 4
+typedef long int intptr_t;
+
+
+typedef unsigned long int uintptr_t;
+# 101 "/usr/include/stdint.h" 3 4
+typedef __intmax_t intmax_t;
+typedef __uintmax_t uintmax_t;
+# 10 "/usr/lib/gcc/x86_64-linux-gnu/8/include/stdint.h" 2 3 4
+# 5 "../include/hal/register_utils.h" 2
+# 1 "../include/hal/type_traits.h" 1
+
+
+
+
+# 4 "../include/hal/type_traits.h"
+namespace stm32{
+
+  template<bool B, class T = void>
+  struct enable_if {};
+  template<class T>
+  struct enable_if<true, T> { typedef T type; };
+};
+# 6 "../include/hal/register_utils.h" 2
+# 16 "../include/hal/register_utils.h"
+namespace stm32{
+namespace internals{
+
+
+  template<typename Enum>
+  struct EnableRegister{
+      static const bool enable = false;
+      static const uint32_t address = 0;
+  };
+
+
+  constexpr uint32_t Bit0 = (1ul << 0);
+  constexpr uint32_t Bit1 = (1ul << 1);
+  constexpr uint32_t Bit2 = (1ul << 2);
+  constexpr uint32_t Bit3 = (1ul << 3);
+  constexpr uint32_t Bit4 = (1ul << 4);
+  constexpr uint32_t Bit5 = (1ul << 5);
+  constexpr uint32_t Bit6 = (1ul << 6);
+  constexpr uint32_t Bit7 = (1ul << 7);
+  constexpr uint32_t Bit8 = (1ul << 8);
+  constexpr uint32_t Bit9 = (1ul << 9);
+  constexpr uint32_t Bit00 = (1ul << 0);
+  constexpr uint32_t Bit01 = (1ul << 1);
+  constexpr uint32_t Bit02 = (1ul << 2);
+  constexpr uint32_t Bit03 = (1ul << 3);
+  constexpr uint32_t Bit04 = (1ul << 4);
+  constexpr uint32_t Bit05 = (1ul << 5);
+  constexpr uint32_t Bit06 = (1ul << 6);
+  constexpr uint32_t Bit07 = (1ul << 7);
+  constexpr uint32_t Bit08 = (1ul << 8);
+  constexpr uint32_t Bit09 = (1ul << 9);
+  constexpr uint32_t Bit10 = (1ul << 10);
+  constexpr uint32_t Bit11 = (1ul << 11);
+  constexpr uint32_t Bit12 = (1ul << 12);
+  constexpr uint32_t Bit13 = (1ul << 13);
+  constexpr uint32_t Bit14 = (1ul << 14);
+  constexpr uint32_t Bit15 = (1ul << 15);
+  constexpr uint32_t Bit16 = (1ul << 16);
+  constexpr uint32_t Bit17 = (1ul << 17);
+  constexpr uint32_t Bit18 = (1ul << 18);
+  constexpr uint32_t Bit19 = (1ul << 19);
+  constexpr uint32_t Bit20 = (1ul << 20);
+  constexpr uint32_t Bit21 = (1ul << 21);
+  constexpr uint32_t Bit22 = (1ul << 22);
+  constexpr uint32_t Bit23 = (1ul << 23);
+  constexpr uint32_t Bit24 = (1ul << 24);
+  constexpr uint32_t Bit25 = (1ul << 25);
+  constexpr uint32_t Bit26 = (1ul << 26);
+  constexpr uint32_t Bit27 = (1ul << 27);
+  constexpr uint32_t Bit28 = (1ul << 28);
+  constexpr uint32_t Bit29 = (1ul << 29);
+  constexpr uint32_t Bit30 = (1ul << 30);
+  constexpr uint32_t Bit31 = (1ul << 31);
+
+
+
+
+  template<typename Enum, uint32_t Address>
+  class Register{
+  public:
+      Register() = default;
+      static constexpr void set(Enum v){
+          *(getAddress()) = v;
+      };
+      static constexpr Enum get(){
+          return *getAddress();
+      };
+      static constexpr void setBit(uint32_t bit){
+          *getBitBandAddress(bit) = 1;
+      };
+      static constexpr void clearBit(uint32_t bit){
+          *getBitBandAddress(bit) = 0;
+      };
+      static constexpr bool readBit(uint32_t bit){
+          return (*getBitBandAddress(bit));
+      };
+  private:
+      static constexpr volatile Enum* getAddress(){
+          return (reinterpret_cast<volatile Enum*>(Address));
+      };
+      static constexpr volatile uint32_t* getBitBandAddress(const uint32_t bit=0ul){
+          return (reinterpret_cast<volatile uint32_t*>(0x42000000+(Address-0x40000000)*32+bit*4));
+      };
+  };
+
+
+
+  template <typename Enum, uint8_t width, uint8_t shift>
+  class Value{
+  public:
+      Value() = default;
+
+
+
+
+      static constexpr Enum eval(uint32_t v){
+          return static_cast<Enum>( ( v & ( (1<<width) - 1 ) ) << shift );
+
+      };
+      static constexpr uint32_t get(Enum r){
+          return ( (static_cast<uint32_t>(r) >> shift) & ( (1<<width) - 1 ) );
+      };
+      template<uint32_t Address>
+      static constexpr uint32_t get(Register<Enum, Address> r) {
+          return ( (static_cast<uint32_t>(r.get()) >> shift) & ( (1<<width) - 1 ) );
+      };
+  };
+
+  template <typename Enum, typename ConfigEnum, uint8_t width, uint8_t shift>
+  class Configuration{
+  public:
+      Configuration() = default;
+
+
+
+
+      static constexpr Enum eval(ConfigEnum v){
+          return static_cast<Enum>( ( static_cast<uint32_t>(v) & ( (1<<width) - 1 ) ) << shift );
+
+      };
+      static constexpr ConfigEnum get(Enum r){
+          return static_cast<ConfigEnum>( (static_cast<uint32_t>(r) >> shift) & ( (1<<width) - 1 ) );
+      };
+      template<uint32_t Address>
+      static constexpr ConfigEnum get(Register<Enum, Address> r) {
+          return static_cast<ConfigEnum>( (static_cast<uint32_t>(r.get()) >> shift) & ( (1<<width) - 1 ) );
+      };
+  };
+# 195 "../include/hal/register_utils.h"
+}; };
+# 5 "../include/hal/rcc.h" 2
+# 1 "../include/hal/enum_bitmask_operators.h" 1
+# 15 "../include/hal/enum_bitmask_operators.h"
+namespace stm32{
+namespace internals{
+
+    template<typename Enum>
+    struct EnableBitMaskOperators{
+        static const bool enable = false;
+    };
+
+
+    template<typename Enum>
+    typename enable_if<EnableBitMaskOperators<Enum>::enable, Enum>::type
+    constexpr inline operator ~ (Enum lhs){
+        return static_cast<Enum>(
+            ~static_cast<uint32_t>(lhs) );
+    };
+
+
+    template<typename Enum>
+    typename enable_if<EnableBitMaskOperators<Enum>::enable, Enum>::type
+    constexpr inline operator & (Enum lhs, Enum rhs){
+        return static_cast<Enum>(
+            static_cast<uint32_t>(lhs) &
+            static_cast<uint32_t>(rhs) );
+    };
+
+
+    template<typename Enum>
+    typename enable_if<EnableBitMaskOperators<Enum>::enable, Enum>::type
+    constexpr inline operator | (Enum lhs, Enum rhs){
+        return static_cast<Enum>(
+            static_cast<uint32_t>(lhs) |
+            static_cast<uint32_t>(rhs) );
+    };
+
+
+    template<typename Enum>
+    typename enable_if<EnableBitMaskOperators<Enum>::enable, Enum>::type
+    constexpr inline operator ^ (Enum lhs, Enum rhs){
+        return static_cast<Enum>(
+            static_cast<uint32_t>(lhs) ^
+            static_cast<uint32_t>(rhs) );
+    };
+
+
+    template<typename Enum>
+    typename enable_if<EnableBitMaskOperators<Enum>::enable, Enum&>::type
+    inline operator &= (Enum& lhs, Enum rhs){
+        lhs = static_cast<Enum>(
+            static_cast<uint32_t>(lhs) &
+            static_cast<uint32_t>(rhs) );
+        return lhs;
+    };
+
+
+    template<typename Enum>
+    typename enable_if<EnableBitMaskOperators<Enum>::enable, volatile Enum&>::type
+    inline operator &= (volatile Enum& lhs, Enum rhs){
+        lhs = static_cast<Enum>(
+            static_cast<uint32_t>(lhs) &
+            static_cast<uint32_t>(rhs) );
+        return lhs;
+    };
+
+
+    template<typename Enum>
+    typename enable_if<EnableBitMaskOperators<Enum>::enable, Enum&>::type
+    inline operator |= (Enum& lhs, Enum rhs){
+        lhs = static_cast<Enum>(
+            static_cast<uint32_t>(lhs) |
+            static_cast<uint32_t>(rhs) );
+        return lhs;
+    };
+
+
+    template<typename Enum>
+    typename enable_if<EnableBitMaskOperators<Enum>::enable, volatile Enum&>::type
+    inline operator |= (volatile Enum& lhs, Enum rhs){
+        lhs = static_cast<Enum>(
+            static_cast<uint32_t>(lhs) |
+            static_cast<uint32_t>(rhs) );
+        return lhs;
+    };
+
+
+    template<typename Enum>
+    typename enable_if<EnableBitMaskOperators<Enum>::enable, Enum&>::type
+    inline operator ^= (Enum& lhs, Enum rhs){
+        lhs = static_cast<Enum>(
+            static_cast<uint32_t>(lhs) ^
+            static_cast<uint32_t>(rhs) );
+        return lhs;
+    };
+
+
+    template<typename Enum>
+    typename enable_if<EnableBitMaskOperators<Enum>::enable, volatile Enum&>::type
+    inline operator ^= (volatile Enum& lhs, Enum rhs){
+        lhs = static_cast<Enum>(
+            static_cast<uint32_t>(lhs) ^
+            static_cast<uint32_t>(rhs) );
+        return lhs;
+    };
+
+
+};};
+# 6 "../include/hal/rcc.h" 2
+
+namespace stm32{
+namespace internals{
+
+
+enum class RCC_RC : uint32_t{
+  HSION = Bit00,
+  HSIRDY = Bit01,
+  HSITRIM_0 = Bit03,
+  HSITRIM_1 = Bit04,
+  HSITRIM_2 = Bit05,
+  HSITRIM_3 = Bit06,
+  HSITRIM_4 = Bit07,
+  HSICAL_0 = Bit08,
+  HSICAL_1 = Bit09,
+  HSICAL_2 = Bit10,
+  HSICAL_3 = Bit11,
+  HSICAL_4 = Bit12,
+  HSICAL_5 = Bit13,
+  HSICAL_6 = Bit14,
+  HSICAL_7 = Bit15,
+  HSEON = Bit16,
+  HSERDY = Bit17,
+  HSEBYP = Bit18,
+  CSSON = Bit19,
+  PLLON = Bit24,
+  PLLRDY = Bit25,
+};
+
+template<> struct EnableBitMaskOperators<RCC_RC> { static const bool enable = true; };
+
+using Reg_RCC_RC = Register<RCC_RC, 0x40021000>;
+using Hsitrim = Value<RCC_RC, 5, 3> ;
+using Hsical = Value<RCC_RC, 8, 8> ;
+
+
+enum class RCC_CFGR : uint32_t{
+  SW_0 = Bit00,
+  SW_1 = Bit01,
+  SWS_0 = Bit02,
+  SWS_1 = Bit03,
+  HPRE_0 = Bit04,
+  HPRE_1 = Bit05,
+  HPRE_2 = Bit06,
+  HPRE_3 = Bit07,
+  PPRE1_0 = Bit08,
+  PPRE1_1 = Bit09,
+  PPRE1_2 = Bit10,
+  PPRE2_0 = Bit11,
+  PPRE2_1 = Bit12,
+  PPRE2_2 = Bit13,
+  ADCPRE_0 = Bit14,
+  ADCPRE_1 = Bit15,
+  PLLSCR = Bit16,
+  PLLXTPRE = Bit17,
+  PLLMUL_0 = Bit18,
+  PLLMUL_1 = Bit19,
+  PLLMUL_2 = Bit20,
+  PLLMUL_3 = Bit21,
+  USBPRE = Bit22,
+  MCO_0 = Bit24,
+  MCO_1 = Bit25,
+  MCO_2 = Bit26,
+};
+
+enum class MCO : uint32_t{
+    NOCLK = 0,
+    NOCLK_1 = Bit00,
+    NOCLK_2 = Bit01,
+    NOCLK_3 = Bit01 | Bit00,
+    SYSCLK = Bit02,
+    HSICLK = Bit02 | Bit00,
+    HSECLK = Bit02 | Bit01,
+    PLLCLK_DIV_BY_2 = Bit02 | Bit01 | Bit00,
+};
+
+enum class PLLMUL : uint32_t{
+    X2 = 0,
+    X3 = 1,
+    X4 = 2,
+    X5 = 3,
+    X6 = 4,
+    X7 = 5,
+    X8 = 6,
+    X9 = 7,
+    X10 = 8,
+    X11 = 9,
+    X12 = 10,
+    X13 = 11,
+    X14 = 12,
+    X15 = 13,
+    X16 = 14,
+    X16a = 15,
+};
+
+enum class ADCPRE : uint32_t{
+    PCLK2_DIV_BY_2 = 0,
+    PCLK2_DIV_BY_4 = 1,
+    PCLK2_DIV_BY_6 = 2,
+    PCLK2_DIV_BY_8 = 3,
+};
+
+enum class PPRE : uint32_t{
+    HCLK_NO_DIV = 0,
+    HCLK_NO_DIV_1 = 1,
+    HCLK_NO_DIV_2 = 2,
+    HCLK_NO_DIV_3 = 3,
+    HCLK_DIV_BY_2 = 4,
+    HCLK_DIV_BY_4 = 5,
+    HCLK_DIV_BY_8 = 6,
+    HCLK_DIV_BY_16 = 7,
+};
+
+enum class HPRE : uint32_t{
+    SYSCLK_NO_DIV = 0,
+    SYSCLK_DIV_BY_2 = 8,
+    SYSCLK_DIV_BY_4 = 9,
+    SYSCLK_DIV_BY_8 = 10,
+    SYSCLK_DIV_BY_16 = 11,
+    SYSCLK_DIV_BY_64 = 12,
+    SYSCLK_DIV_BY_128 = 13,
+    SYSCLK_DIV_BY_256 = 14,
+    SYSCLK_DIV_BY_512 = 15,
+};
+
+enum class SW : uint32_t{
+    HSI = 0,
+    HSE = 1,
+    PLL = 2,
+    NA = 3,
+};
+
+template<> struct EnableBitMaskOperators<RCC_CFGR> { static const bool enable = true; };
+using Reg_RCC_CFGR = Register<RCC_CFGR, 0x40021004>;
+using Mco = Configuration<RCC_CFGR, MCO, 3, 24> ;
+using Pllmul = Configuration<RCC_CFGR, PLLMUL, 4, 18> ;
+using Adcpre = Configuration<RCC_CFGR, ADCPRE, 2, 14> ;
+using Ppre2 = Configuration<RCC_CFGR, PPRE, 3, 11> ;
+using Ppre1 = Configuration<RCC_CFGR, PPRE, 3, 8> ;
+using Hpre = Configuration<RCC_CFGR, HPRE, 4, 4> ;
+using Sws = Configuration<RCC_CFGR, SW, 2, 2> ;
+using Sw = Configuration<RCC_CFGR, SW, 2, 0> ;
+
+
+
+enum class RCC_CIR : uint32_t{
+  LSIRDYF = Bit00,
+  LSERDYF = Bit01,
+  HSIRDYF = Bit02,
+  HSERDYF = Bit03,
+  PLLRDYF = Bit04,
+  CSSF = Bit07,
+  LSIRDYE = Bit08,
+  LSERDYE = Bit09,
+  HSIRDYE = Bit10,
+  HSERDYE = Bit11,
+  PLLRDYE = Bit12,
+  LSIRDYC = Bit16,
+  LSERDYC = Bit17,
+  HSIRDYC = Bit18,
+  HSERDYC = Bit19,
+  PLLRDYC = Bit20,
+  CSSC = Bit23,
+};
+
+template<> struct EnableBitMaskOperators<RCC_CIR> { static const bool enable = true; };
+using Reg_RCC_CIR = Register<RCC_CIR, 0x40021008>;
+
+
+enum class RCC_APB2RSTR : uint32_t{
+  AFIO = Bit00,
+  IOPA = Bit02,
+  IOPB = Bit03,
+  IOPC = Bit04,
+  IOPD = Bit05,
+  IOPE = Bit06,
+  IOPF = Bit07,
+  IOPG = Bit08,
+  ADC1 = Bit09,
+  ADC2 = Bit10,
+  TIM1 = Bit11,
+  SPI1 = Bit12,
+  TIM8 = Bit13,
+  USART1 = Bit14,
+  ADC3 = Bit15,
+  TIM9 = Bit19,
+  TIM10 = Bit20,
+  TIM11 = Bit21,
+};
+
+template<> struct EnableBitMaskOperators<RCC_APB2RSTR> { static const bool enable = true; };
+using Reg_RCC_APB2RSTR = Register<RCC_APB2RSTR, 0x4002100c>;
+
+enum class RCC_APB1RSTR : uint32_t{
+  TIM1 = Bit00,
+  TIM3 = Bit01,
+  TIM4 = Bit02,
+  TIM5 = Bit03,
+  TIM6 = Bit04,
+  TIM7 = Bit05,
+  TIM12 = Bit06,
+  TIM13 = Bit07,
+  TIM14 = Bit08,
+  WWDG = Bit11,
+  SPI2 = Bit14,
+  SPI3 = Bit15,
+  USART2 = Bit17,
+  USART3 = Bit18,
+  UART4 = Bit19,
+  UART5 = Bit20,
+  I2C1 = Bit21,
+  I2C2 = Bit22,
+  USB = Bit23,
+  CAN = Bit25,
+  BKP = Bit27,
+  PWR = Bit28,
+  DAC = Bit29,
+};
+
+template<> struct EnableBitMaskOperators<RCC_APB1RSTR> { static const bool enable = true; };
+using Reg_RCC_APB1RSTR = Register<RCC_APB1RSTR, 0x40021010>;
+
+
+enum class RCC_AHBENR : uint32_t{
+  DAM1 = Bit00,
+  DAM2 = Bit01,
+  SRAM = Bit02,
+  FLITF = Bit04,
+  CRC = Bit06,
+  FSMC = Bit08,
+  SDIO = Bit10,
+};
+
+template<> struct EnableBitMaskOperators<RCC_AHBENR> { static const bool enable = true; };
+using Reg_RCC_AHBENR = Register<RCC_AHBENR, 0x40021014>;
+
+
+enum class RCC_APB2ENR : uint32_t{
+  AFIO = Bit00,
+  IOPA = Bit02,
+  IOPB = Bit03,
+  IOPC = Bit04,
+  IOPD = Bit05,
+  IOPE = Bit06,
+  IOPF = Bit07,
+  IOPG = Bit08,
+  ADC1 = Bit09,
+  ADC2 = Bit10,
+  TIM1 = Bit11,
+  SPI1 = Bit12,
+  TIM8 = Bit13,
+  USART1 = Bit14,
+  ADC3 = Bit15,
+  TIM9 = Bit19,
+  TIM10 = Bit20,
+  TIM11 = Bit21,
+};
+
+template<> struct EnableBitMaskOperators<RCC_APB2ENR> { static const bool enable = true; };
+using Reg_RCC_APB2ENR = Register<RCC_APB2ENR, 0x40021018>;
+
+enum class RCC_APB1ENR : uint32_t{
+  TIM1 = Bit00,
+  TIM3 = Bit01,
+  TIM4 = Bit02,
+  TIM5 = Bit03,
+  TIM6 = Bit04,
+  TIM7 = Bit05,
+  TIM12 = Bit06,
+  TIM13 = Bit07,
+  TIM14 = Bit08,
+  WWDG = Bit11,
+  SPI2 = Bit14,
+  SPI3 = Bit15,
+  USART2 = Bit17,
+  USART3 = Bit18,
+  UART4 = Bit19,
+  UART5 = Bit20,
+  I2C1 = Bit21,
+  I2C2 = Bit22,
+  USB = Bit23,
+  CAN = Bit25,
+  BKP = Bit27,
+  PWR = Bit28,
+  DAC = Bit29,
+};
+
+template<> struct EnableBitMaskOperators<RCC_APB1ENR> { static const bool enable = true; };
+using Reg_RCC_APB1ENR = Register<RCC_APB1ENR, 0x4002101c>;
+
+enum class RCC_BDCR : uint32_t{
+  LSEON = Bit00,
+  LSERDY = Bit01,
+  LSEBYP = Bit02,
+  RTCSEL_0 = Bit08,
+  RTCSEL_1 = Bit09,
+  RTCEN = Bit15,
+  BDRST = Bit16,
+};
+
+enum class RTCSEL : uint32_t{
+    NOCLK = 0,
+    LSECLK = 1,
+    HSECLK = 3,
+};
+
+template<> struct EnableBitMaskOperators<RCC_BDCR> { static const bool enable = true; };
+using Reg_RCC_BDCR = Register<RCC_BDCR, 0x40021020>;
+using Rtcsel = Configuration<RCC_BDCR, RTCSEL, 2, 8> ;
+
+enum class RCC_CSR : uint32_t{
+  LSION = Bit00,
+  LSIRDY = Bit01,
+  RMVF = Bit24,
+  PINRSTF = Bit26,
+  PORRSTF = Bit27,
+  SFTRSTF = Bit28,
+  IWDGRSTF = Bit29,
+  WWDGRSTF = Bit30,
+  LPWRRSTF = Bit31,
+};
+
+template<> struct EnableBitMaskOperators<RCC_CSR> { static const bool enable = true; };
+using Reg_RCC_CSR = Register<RCC_CSR, 0x40021024>;
+
+};
+};
+# 3 "main.cpp" 2
+# 1 "../include/hal/gpio.h" 1
+
+
+
+
+
+
+namespace stm32{
+namespace internals{
+
+enum class GPIO_CR : uint32_t{
+  MODE_0 = Bit00,
+  MODE_1 = Bit01,
+   CNF_0 = Bit02,
+   CNF_1 = Bit03,
+};
+
+enum class MODE : uint32_t{
+  INPUT = 0,
+  OUTPUT_10MHZ = 1,
+  OUTPUT_2MHZ = 2,
+  OUTPUT_50MHZ = 3,
+};
+
+enum class INPUT : uint32_t{
+  ANALOG = 0,
+  FLOATING = 1,
+  PULL_UPDOWN = 2,
+  RESERVED = 3,
+};
+
+enum class OUTPUT : uint32_t{
+  GP_PUSHPULL = 0,
+  GP_OPENDRAIN = 1,
+  AF_PUSHPULL = 2,
+  AF_OPENDRAIN = 3,
+};
+
+template<> struct EnableBitMaskOperators<GPIO_CR> { static const bool enable = true; };
+using Reg_GPIOA_CRL = Register<GPIO_CR, 0x40010800>;
+using Reg_GPIOA_CRH = Register<GPIO_CR, 0x40010804>;
+using Reg_GPIOB_CRL = Register<GPIO_CR, 0x40010C00>;
+using Reg_GPIOB_CRH = Register<GPIO_CR, 0x40010C04>;
+using Reg_GPIOC_CRL = Register<GPIO_CR, 0x40011000>;
+using Reg_GPIOC_CRH = Register<GPIO_CR, 0x40011004>;
+using Reg_GPIOD_CRL = Register<GPIO_CR, 0x40011400>;
+using Reg_GPIOD_CRH = Register<GPIO_CR, 0x40011404>;
+using Reg_GPIOE_CRL = Register<GPIO_CR, 0x40011800>;
+using Reg_GPIOE_CRH = Register<GPIO_CR, 0x40011804>;
+using Reg_GPIOF_CRL = Register<GPIO_CR, 0x40011C00>;
+using Reg_GPIOF_CRH = Register<GPIO_CR, 0x40011C04>;
+using Reg_GPIOG_CRL = Register<GPIO_CR, 0x40012000>;
+using Reg_GPIOG_CRH = Register<GPIO_CR, 0x40012004>;
+using Pin00_Mode = Configuration<GPIO_CR, MODE, 2, 0> ;
+using Pin00_Input = Configuration<GPIO_CR, INPUT, 2, 2> ;
+using Pin00_Output = Configuration<GPIO_CR, OUTPUT, 2, 2> ;
+using Pin08_Mode = Configuration<GPIO_CR, MODE, 2, 0> ;
+using Pin08_Input = Configuration<GPIO_CR, INPUT, 2, 2> ;
+using Pin08_Output = Configuration<GPIO_CR, OUTPUT, 2, 2> ;
+using Pin01_Mode = Configuration<GPIO_CR, MODE, 2, 4> ;
+using Pin01_Input = Configuration<GPIO_CR, INPUT, 2, 6> ;
+using Pin01_Output = Configuration<GPIO_CR, OUTPUT, 2, 6> ;
+using Pin09_Mode = Configuration<GPIO_CR, MODE, 2, 4> ;
+using Pin09_Input = Configuration<GPIO_CR, INPUT, 2, 6> ;
+using Pin09_Output = Configuration<GPIO_CR, OUTPUT, 2, 6> ;
+using Pin02_Mode = Configuration<GPIO_CR, MODE, 2, 8> ;
+using Pin02_Input = Configuration<GPIO_CR, INPUT, 2, 10> ;
+using Pin02_Output = Configuration<GPIO_CR, OUTPUT, 2, 10> ;
+using Pin10_Mode = Configuration<GPIO_CR, MODE, 2, 8> ;
+using Pin10_Input = Configuration<GPIO_CR, INPUT, 2, 10> ;
+using Pin10_Output = Configuration<GPIO_CR, OUTPUT, 2, 10> ;
+using Pin03_Mode = Configuration<GPIO_CR, MODE, 2, 12> ;
+using Pin03_Input = Configuration<GPIO_CR, INPUT, 2, 14> ;
+using Pin03_Output = Configuration<GPIO_CR, OUTPUT, 2, 14> ;
+using Pin11_Mode = Configuration<GPIO_CR, MODE, 2, 12> ;
+using Pin11_Input = Configuration<GPIO_CR, INPUT, 2, 14> ;
+using Pin11_Output = Configuration<GPIO_CR, OUTPUT, 2, 14> ;
+using Pin04_Mode = Configuration<GPIO_CR, MODE, 2, 16> ;
+using Pin04_Input = Configuration<GPIO_CR, INPUT, 2, 18> ;
+using Pin04_Output = Configuration<GPIO_CR, OUTPUT, 2, 18> ;
+using Pin12_Mode = Configuration<GPIO_CR, MODE, 2, 16> ;
+using Pin12_Input = Configuration<GPIO_CR, INPUT, 2, 18> ;
+using Pin12_Output = Configuration<GPIO_CR, OUTPUT, 2, 18> ;
+using Pin05_Mode = Configuration<GPIO_CR, MODE, 2, 20> ;
+using Pin05_Input = Configuration<GPIO_CR, INPUT, 2, 22> ;
+using Pin05_Output = Configuration<GPIO_CR, OUTPUT, 2, 22> ;
+using Pin13_Mode = Configuration<GPIO_CR, MODE, 2, 20> ;
+using Pin13_Input = Configuration<GPIO_CR, INPUT, 2, 22> ;
+using Pin13_Output = Configuration<GPIO_CR, OUTPUT, 2, 22> ;
+using Pin06_Mode = Configuration<GPIO_CR, MODE, 2, 24> ;
+using Pin06_Input = Configuration<GPIO_CR, INPUT, 2, 26> ;
+using Pin06_Output = Configuration<GPIO_CR, OUTPUT, 2, 26> ;
+using Pin14_Mode = Configuration<GPIO_CR, MODE, 2, 24> ;
+using Pin14_Input = Configuration<GPIO_CR, INPUT, 2, 26> ;
+using Pin14_Output = Configuration<GPIO_CR, OUTPUT, 2, 26> ;
+using Pin07_Mode = Configuration<GPIO_CR, MODE, 2, 28> ;
+using Pin07_Input = Configuration<GPIO_CR, INPUT, 2, 30> ;
+using Pin07_Output = Configuration<GPIO_CR, OUTPUT, 2, 30> ;
+using Pin15_Mode = Configuration<GPIO_CR, MODE, 2, 28> ;
+using Pin15_Input = Configuration<GPIO_CR, INPUT, 2, 30> ;
+using Pin15_Output = Configuration<GPIO_CR, OUTPUT, 2, 30> ;
+
+
+}; };
+# 4 "main.cpp" 2
+# 15 "main.cpp"
+namespace internals{
+
+template <typename BitField, uint32_t Address>
+class Register{
+public:
+    static constexpr uint32_t _address = Address;
+
+public:
+    Register() { };
+    static constexpr uint32_t& value(){
+        return *reinterpret_cast<uint32_t*>(Address);
+    };
+    static constexpr BitField& bitfield(){
+        return *reinterpret_cast<BitField*>(Address);
+    };
+
+};
+
+};
+
+namespace myreg{
+    struct bitfield_t{
+        uint32_t Field0 : 8;
+        uint32_t Field1 : 8;
+        uint32_t Field2 : 8;
+        uint32_t Field3 : 8;
+    };
+    enum Field0 : uint8_t{
+        CONFIG_A = 0,
+        CONFIG_B = 1,
+        CONFIG_C = 2,
+        CONFIG_D = 3,
+    };
+    class reg : public ::internals::Register<bitfield_t, 0x40021000>{
+    public:
+        reg(){};
+        static void setField0(Field0 f){ bitfield().Field0 = f; };
+        static Field0 getfield_name(){ return static_cast<Field0>(bitfield().field_name); };
+
+
+
+
+    };
+};
+# 69 "main.cpp"
+volatile uint32_t temp;
+
+using namespace stm32::internals;
+
+int main(void) {
+
+
+    myreg::reg::setField0(myreg::Field0::CONFIG_D);
+    temp = myreg::reg::getField0();
+    return myreg::reg::value();
+};

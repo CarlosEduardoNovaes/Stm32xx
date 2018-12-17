@@ -5,7 +5,7 @@ TOOLCHAIN = arm-none-eabi
 
 
 # GCC OPTIONS
-CC_OPTIONS  = -fno-exceptions -std=gnu++14 -nostdlib
+CC_OPTIONS  = -fno-exceptions -std=gnu++14 -nostdlib -fno-rtti 
 # CPU RELATED OPTIONS
 CC_OPTIONS += -mcpu=cortex-m3 -mthumb
 # OPTIMIZATION OPTIONS
@@ -30,16 +30,21 @@ OCDCFG   = -f /usr/share/openocd/scripts/interface/stlink-v2.cfg
 OCDCFG   += -f /usr/share/openocd/scripts/target/stm32f1x.cfg
 
 STARTUP_DIR = startup
+MINILIB_DIR = minilib
 TESTAPP_DIR = testapp
 
 
 .PHONY: startup
+.PHONY: minilib
 .PHONY: testapp
 
 all: testapp.dump.asm testapp.bin
 
 startup:
 	$(MAKE) -C $(STARTUP_DIR)
+
+minilib:
+	$(MAKE) -C $(MINILIB_DIR)
 
 testapp:
 	$(MAKE) -C $(TESTAPP_DIR)
@@ -50,8 +55,8 @@ testapp.dump.asm:	testapp.elf
 testapp.bin:	testapp.elf
 	$(OBJCOPY) testapp.elf testapp.bin -O binary
 
-testapp.elf: 	startup/stm32f103.ld startup testapp
-	$(LD) -T startup/stm32f103.ld -o testapp.elf $(STARTUP_FILES) testapp/testapp.o
+testapp.elf: 	startup/stm32f103.ld startup minilib testapp
+	$(LD)  -T  startup/stm32f103.ld -o testapp.elf $(STARTUP_FILES) minilib/minilib.o testapp/testapp.o
 
 
 # To burn the image:
@@ -75,4 +80,5 @@ gdbtui:
 clean:
 	rm -f *.o *.elf *.dump.asm *.bin
 	$(MAKE) -C $(STARTUP_DIR) clean
+	$(MAKE) -C $(MINILIB_DIR) clean
 	$(MAKE) -C $(TESTAPP_DIR) clean

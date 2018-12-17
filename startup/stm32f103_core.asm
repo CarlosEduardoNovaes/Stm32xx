@@ -3,7 +3,7 @@
  * Tom Trebisky  9-24-2016
  */
 
-# The Cortex M3 is a thumb only processor
+/* The Cortex M3 is a thumb only processor */
 .cpu cortex-m3
 .thumb
 

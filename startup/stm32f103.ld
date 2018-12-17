@@ -18,6 +18,19 @@ MEMORY
 
 SECTIONS
 {
-   .text : { *(.text*) } > rom
-   .bss  : { *(.bss*) } > ram
+    . = ALIGN(4);
+    .text : { *(.text*) } > rom
+    .bss  : { *(.bss*) } > ram
+    .preinit_array  :    {
+        PROVIDE_HIDDEN (__preinit_array_start = .);
+        KEEP (*(.preinit_array*))
+        PROVIDE_HIDDEN (__preinit_array_end = .);
+    } > rom
+    
+    .init_array :  {
+        PROVIDE_HIDDEN (__init_array_start = .);
+        KEEP (*(SORT(.init_array.*)))
+        KEEP (*(.init_array*))
+        PROVIDE_HIDDEN (__init_array_end = .);
+    } > rom
 }

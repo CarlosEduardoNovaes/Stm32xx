@@ -25,12 +25,12 @@ GDB = $(TOOLCHAIN)-gdb
 
 ###############################################################################
 
-OBJS = testapp.o
+OBJS = minilib.o
 
 all: $(OBJS)
 
-testapp.o:	main.cpp
-	$(CC) -c main.cpp -o testapp.o
+minilib.o:	minilib.cpp
+	$(CC) -c minilib.cpp -o minilib.o
 
 
 clean:

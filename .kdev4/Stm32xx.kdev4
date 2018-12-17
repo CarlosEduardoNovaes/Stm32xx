@@ -13,6 +13,11 @@ Name=Clang
 [CustomDefinesAndIncludes][ProjectPath0][Defines]
 include/hal=
 
+[CustomDefinesAndIncludes][ProjectPath0][Includes]
+1=/home/carlos/Documentos/Projetos/STM32/Stm32xx/include/stm32xx/registers/
+2=/home/carlos/Documentos/Projetos/STM32/Stm32xx/include/stm32xx/
+3=/home/carlos/Documentos/Projetos/STM32/Stm32xx/include/
+
 [CustomDefinesAndIncludes][ProjectPath1]
 Path=include/hal
 parseAmbiguousAsCPP=true

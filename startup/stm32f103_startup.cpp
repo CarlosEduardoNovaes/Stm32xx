@@ -54,7 +54,7 @@ extern uint8_t __data_load__;
 // void _exit(int return_code) __attribute__((noreturn));
 
 
-extern "C" uint32_t (* const vectortable[]) __attribute__((section (".stm32.isrSection"))) = {
+extern "C" uint32_t * const vectortable[] __attribute__((section (".stm32.isrSection"))) = {
     /* Function Pointer                         Name                    Addr            IRQn    EXn */
     (uint32_t*) STACK_START_ADDR,               /* SP                   0x0000          N/A     N/A */
     (uint32_t*) startup,                        /* Reset                0x0004          N/A     1 */

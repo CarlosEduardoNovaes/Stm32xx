@@ -15,7 +15,7 @@ namespace stm32{
         hex         = 16,
         Hex         = 16        
     };
-    template<NumBase Base=NumBase::Hexadecimal, uint32_t Precision=5, bool Fixed = true >
+    template<NumBase Base=NumBase::Decimal, uint32_t Precision=5, bool Fixed = true >
     class iostream{
     public:
         iostream()= default;

@@ -1,5 +1,5 @@
-#ifndef __STM32__FLASH_HPP__
-#define __STM32__FLASH_HPP__
+#ifndef __STM32__REGISTER_FLASH_HPP__
+#define __STM32__REGISTER_FLASH_HPP__
 
 #include <stm32xx/registers/registers.hpp>
 
@@ -38,4 +38,4 @@ namespace flash_acr{
 
 }; }; // End stm32::registers namespace
 
-#endif // __STM32__FLASH_HPP__
+#endif // __STM32__REGISTER_FLASH_HPP__

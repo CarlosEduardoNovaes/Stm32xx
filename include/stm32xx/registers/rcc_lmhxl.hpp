@@ -1,5 +1,5 @@
-#ifndef __STM32__RCC_LMHXL_HPP__
-#define __STM32__RCC_LMHXL_HPP__
+#ifndef __STM32__REGISTER_RCC_LMHXL_HPP__
+#define __STM32__REGISTER_RCC_LMHXL_HPP__
 
 #include <stm32xx/registers/registers.hpp>
 
@@ -495,4 +495,4 @@ namespace rcc_csr{
 
 }; }; // End stm32::registers namespace
 
-#endif // __STM32__RCC_LMHXL_HPP__
+#endif // __STM32__REGISTER_RCC_LMHXL_HPP__

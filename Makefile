@@ -1,28 +1,34 @@
 # Makefile for testapp.o
 
+TOOLCHAIN_PATH = ~/x-tools/arm-bare_newlib_cortex_m3_nommu-eabi/
 # TOOLCHAIN
-TOOLCHAIN = arm-none-eabi
+#TOOLCHAIN = arm-none-eabi
+TOOLCHAIN = $(TOOLCHAIN_PATH)/bin/arm-bare_newlib_cortex_m3_nommu-eabi
 
 
 # GCC OPTIONS
-CC_OPTIONS  = -fno-exceptions -std=gnu++14 -nostdlib -fno-rtti 
+CC_OPTIONS  = -fno-exceptions -std=gnu++14 -nostdlib -fno-rtti  -W -Wall
 # CPU RELATED OPTIONS
-CC_OPTIONS += -mcpu=cortex-m3 -mthumb
+CC_OPTIONS += -mcpu=cortex-m3 -mthumb -mlittle-endian -mfloat-abi=soft -lm
 # OPTIMIZATION OPTIONS
-CC_OPTIONS += -O3
+CC_OPTIONS +=  -O3
 CC = $(TOOLCHAIN)-g++ $(CC_OPTIONS)
+#TOOLCHAIN_LIBS = $(TOOLCHAIN_PATH)/lib/gcc/arm-unknown-eabi/8.2.0/thumb/libgcc.a $(TOOLCHAIN_PATH)/arm-unknown-eabi/lib/thumb/libm.a
+#TOOLCHAIN_LIBS = ~/x-tools/arm-bare_newlib_cortex_m3_nommu-eabi/lib/gcc/arm-bare_newlib_cortex_m3_nommu-eabi/8.2.0/libgcc.a ~/x-tools/arm-bare_newlib_cortex_m3_nommu-eabi/arm-bare_newlib_cortex_m3_nommu-eabi/lib/libc.a
 
 # TOOLS
 AS = $(TOOLCHAIN)-as
-LD = $(TOOLCHAIN)-ld.bfd
+#LD = $(TOOLCHAIN)-ld.bfd 
+LD = $(TOOLCHAIN)-g++ -Wl,--build-id=none -nostartfiles -mcpu=cortex-m3 -mthumb
 OBJCOPY = $(TOOLCHAIN)-objcopy
-DUMP = $(TOOLCHAIN)-objdump -d
+DUMP = $(TOOLCHAIN)-objdump -D
 GDB = $(TOOLCHAIN)-gdb
 
 ###############################################################################
 
 # STARTUP_FILES
-STARTUP_FILES = startup/stm32f103_core.o  startup/stm32f103_startup.o
+# STARTUP_FILES = startup/stm32f103_core.o  startup/stm32f103_startup.o
+STARTUP_FILES =  startup/stm32f103_startup.o
 
 # OPENOCD
 OPENOCD  = openocd
@@ -56,7 +62,8 @@ testapp.bin:	testapp.elf
 	$(OBJCOPY) testapp.elf testapp.bin -O binary
 
 testapp.elf: 	startup/stm32f103.ld startup minilib testapp
-	$(LD)  -T  startup/stm32f103.ld -o testapp.elf $(STARTUP_FILES) minilib/minilib.o testapp/testapp.o
+# 	$(LD)  -T  startup/stm32f103.ld -o testapp.elf $(STARTUP_FILES) minilib/minilib.o testapp/testapp.o
+	$(LD)  -T  startup/stm32f103.ld -o testapp.elf $(STARTUP_FILES)  testapp/testapp.o $(TOOLCHAIN_LIBS)
 
 
 # To burn the image:

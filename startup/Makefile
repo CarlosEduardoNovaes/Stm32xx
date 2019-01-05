@@ -1,23 +1,31 @@
 # Makefile for stm32f103_startup.o
 
 #TOOLCHAIN
-TOOLCHAIN = arm-none-eabi
+#TOOLCHAIN = arm-none-eabi
+TOOLCHAIN = ~/x-tools/arm-bare_newlib_cortex_m3_nommu-eabi/bin/arm-bare_newlib_cortex_m3_nommu-eabi
 
 
 # GCC OPTIONS
-CC_OPTIONS  = -fno-exceptions -std=gnu++14 -nostdlib -fno-rtti 
+CC_OPTIONS  = -fno-exceptions -std=gnu++14 -nostdlib -fno-rtti  -W -Wall
 # CPU RELATED OPTIONS
-CC_OPTIONS += -mcpu=cortex-m3 -mthumb
+CC_OPTIONS += -mcpu=cortex-m3 -mthumb -mlittle-endian -mfloat-abi=soft
 # OPTIMIZATION OPTIONS
-CC_OPTIONS += -O3
+CC_OPTIONS +=  -O3
 # INCLUDES
 CC_OPTIONS += -I../include
 CC = $(TOOLCHAIN)-g++ $(CC_OPTIONS)
 
 
+LINKER_SCRIPT = stm32f103.ld
+
+LDFLAGS += -march=armv7-m -mabi=aapcs
+LDFLAGS += -nostartfiles -nostdlib -lgcc
+LDFLAGS += -T$(LINKER_SCRIPT)
+
 # TOOLS
 AS = $(TOOLCHAIN)-as
 LD = $(TOOLCHAIN)-ld.bfd
+#LD = $(CC) $(LDFLAGS)
 OBJCOPY = $(TOOLCHAIN)-objcopy
 DUMP = $(TOOLCHAIN)-objdump -d
 GDB = $(TOOLCHAIN)-gdb

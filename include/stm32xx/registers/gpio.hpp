@@ -1,5 +1,5 @@
-#ifndef __STM32__RCC_GPIO_HPP__
-#define __STM32__RCC_GPIO_HPP__
+#ifndef __STM32__REGISTER_GPIO_HPP__
+#define __STM32__REGISTER_GPIO_HPP__
 
 #include <stm32xx/registers/registers.hpp>
 
@@ -63,7 +63,7 @@ namespace crh{                                                                  
         uint32_t  Mode15            :   2;                                              \
         uint32_t   Cnf15            :   2;                                              \
     };                                                                                  \
-    STM32_REGISTER_START(bitfield_t, base_address + 0x04)                               \
+    STM32_REGISTER_START(bitfield_t, base_address)                                      \
         STM32_ACCESSOR_BF   (Mode8     , ::stm32::registers::gpio::MODE    )            \
         STM32_ACCESSOR_BF   ( Cnf8     , ::stm32::registers::gpio::CNF     )            \
         STM32_ACCESSOR_BF   (Mode9     , ::stm32::registers::gpio::MODE    )            \
@@ -105,7 +105,7 @@ namespace idr{                                                                  
         uint32_t  Idr15             :   1;                                              \
         uint32_t  _res_16           :  16;                                              \
     };                                                                                  \
-    STM32_REGISTER_START(bitfield_t, base_address + 0x08)                               \
+    STM32_REGISTER_START(bitfield_t, base_address)                                      \
         STM32_GETTER_BB(Idr0        , 0  )                                              \
         STM32_GETTER_BB(Idr1        , 1  )                                              \
         STM32_GETTER_BB(Idr2        , 2  )                                              \
@@ -147,7 +147,7 @@ namespace odr{                                                                  
         uint32_t  Odr15             :   1;                                              \
         uint32_t  _res_16           :  16;                                              \
     };                                                                                  \
-    STM32_REGISTER_START(bitfield_t, base_address + 0x0C)                               \
+    STM32_REGISTER_START(bitfield_t, base_address)                                      \
         STM32_SETTER_BB(Odr0        , 0  )                                              \
         STM32_SETTER_BB(Odr1        , 1  )                                              \
         STM32_SETTER_BB(Odr2        , 2  )                                              \
@@ -204,7 +204,7 @@ namespace bsr{                                                                  
         uint32_t  Br14              :   1;                                              \
         uint32_t  Br15              :   1;                                              \
     };                                                                                  \
-    STM32_REGISTER_START(bitfield_t, base_address+0x10)                                 \
+    STM32_REGISTER_START(bitfield_t, base_address)                                      \
         STM32_SETTER_BB(Bs0        , 0  )                                               \
         STM32_SETTER_BB(Bs1        , 1  )                                               \
         STM32_SETTER_BB(Bs2        , 2  )                                               \
@@ -261,7 +261,7 @@ namespace br{                                                                   
         uint32_t  Br15              :   1;                                              \
         uint32_t  _res_16           :  16;                                              \
     };                                                                                  \
-    STM32_REGISTER_START(bitfield_t, base_address + 0x14)                               \
+    STM32_REGISTER_START(bitfield_t, base_address)                                      \
         STM32_SETTER_BB(Br0        , 0  )                                               \
         STM32_SETTER_BB(Br1        , 1  )                                               \
         STM32_SETTER_BB(Br2        , 2  )                                               \
@@ -303,7 +303,7 @@ namespace lckr{                                                                 
         uint32_t  Lckk               :   1;                                             \
         uint32_t  _res_17            :  15;                                             \
     };                                                                                  \
-    STM32_REGISTER_START(bitfield_t, base_address + 0x18)                               \
+    STM32_REGISTER_START(bitfield_t, base_address)                                      \
         STM32_ACCESSOR_BB(Lck0        , 0  )                                            \
         STM32_ACCESSOR_BB(Lck1        , 1  )                                            \
         STM32_ACCESSOR_BB(Lck2        , 2  )                                            \
@@ -326,12 +326,12 @@ namespace lckr{                                                                 
 
 #define STM32_GPIO_DECL(base_address)           \
 STM32_GPIO_CRL_DECL(base_address)               \
-STM32_GPIO_CRH_DECL(base_address)               \
-STM32_GPIO_IDR_DECL(base_address)               \
-STM32_GPIO_ODR_DECL(base_address)               \
-STM32_GPIO_BSR_DECL(base_address)               \
-STM32_GPIO_BR_DECL (base_address)               \
-STM32_GPIO_LCKR_DECL(base_address)
+STM32_GPIO_CRH_DECL(base_address + 0x04)        \
+STM32_GPIO_IDR_DECL(base_address + 0x08)        \
+STM32_GPIO_ODR_DECL(base_address + 0x0C)        \
+STM32_GPIO_BSR_DECL(base_address + 0x10)        \
+STM32_GPIO_BR_DECL (base_address + 0x14)        \
+STM32_GPIO_LCKR_DECL(base_address + 0x18)
 
 
 /*******************************************************************************
@@ -391,4 +391,4 @@ namespace g{
 }; }; // End stm32::registers namespace
 
 
-#endif // __STM32__RCC_GPIO_HPP__
+#endif // __STM32__REGISTER_GPIO_HPP__

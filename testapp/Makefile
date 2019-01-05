@@ -1,18 +1,20 @@
 # Makefile for testapp.o
 
 #TOOLCHAIN
-TOOLCHAIN = arm-none-eabi
+#TOOLCHAIN = arm-none-eabi
+TOOLCHAIN = ~/x-tools/arm-bare_newlib_cortex_m3_nommu-eabi/bin/arm-bare_newlib_cortex_m3_nommu-eabi
 
 
 # GCC OPTIONS
-CC_OPTIONS  = -fno-exceptions -std=gnu++14 -nostdlib -fno-rtti 
+CC_OPTIONS  = -fno-exceptions -std=gnu++14 -nostdlib -fno-rtti -lm  -W -Wall
 # CPU RELATED OPTIONS
-CC_OPTIONS += -mcpu=cortex-m3 -mthumb
+CC_OPTIONS += -mcpu=cortex-m3 -mthumb -mlittle-endian -mfloat-abi=soft
 # OPTIMIZATION OPTIONS
 CC_OPTIONS += -O3
 # INCLUDES
 CC_OPTIONS += -I../include
 CC = $(TOOLCHAIN)-g++ $(CC_OPTIONS)
+
 
 # TOOLS
 AS = $(TOOLCHAIN)-as

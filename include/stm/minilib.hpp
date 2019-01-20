@@ -1,5 +1,5 @@
-#ifndef __STM32__MINILIB_HPP__
-#define __STM32__MINILIB_HPP__
+#ifndef __STM__MINILIB_HPP__
+#define __STM__MINILIB_HPP__
 
 #include <stddef.h>
 #include <stdint.h>
@@ -9,4 +9,4 @@ extern "C" void __attribute__((optimize("O0"))) memcpy(void *dst, void *src, siz
 extern "C" int __attribute__((optimize("O0"))) __aeabi_f2iz(float v) ;
 extern "C" void* malloc(size_t size);
 
-#endif // __STM32__MINILIB_HPP__
+#endif // __STM__MINILIB_HPP__

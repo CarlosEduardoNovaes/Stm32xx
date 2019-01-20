@@ -3,11 +3,11 @@ TOOLCHAIN_PATH = ~/x-tools/arm-bare_newlib_cortex_m3_nommu-eabi/
 TOOLCHAIN = $(TOOLCHAIN_PATH)/bin/arm-bare_newlib_cortex_m3_nommu-eabi
 
 # CPP OPTIONS
-CPP_OPTIONS  = -fno-exceptions -std=gnu++14 -nostdlib -fno-rtti  -W -Wall
+CPP_OPTIONS  = -fno-exceptions -std=gnu++2a -nostdlib -fno-rtti  -W -Wall
 # CPU RELATED OPTIONS
 CPU_OPTIONS += -mcpu=cortex-m3 -mthumb 
 # OPTIMIZATION OPTIONS
-OPTIM_OPTIONS +=  -O3
+OPTIM_OPTIONS +=  -O3 
 
 # LD OPTIONS
 LD_OPTIONS = -Wl,--build-id=none -nostartfiles $(CPU_OPTIONS)
@@ -28,6 +28,8 @@ OBJCOPY = $(TOOLCHAIN)-objcopy
 DUMP = $(TOOLCHAIN)-objdump -D
 # GDB
 GDB = $(TOOLCHAIN)-gdb
+# STRIP
+STRIP = $(TOOLCHAIN)-strip
 
 ###############################################################################
 

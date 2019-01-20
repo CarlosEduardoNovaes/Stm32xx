@@ -28,11 +28,11 @@ SECTIONS
     /*This section starts at 0x08000000 and contains the very first opcode executed by the cpu
     Also, its where the cpu jump to on interrupts
     It must contain the vectortable array defined in the startup file*/
-    .stm32.isrSection 0x08000000 :
+    .stm.isrSection 0x08000000 :
     {
         _sisrvectors = .;
-        KEEP(*(.stm32.isrSection)) /* keep my variable even if not referenced */
-        ASSERT(. == 0x150, "The vector table needs to be 84 elements long!");
+        KEEP(*(.stm.isrSection)) /* keep my variable even if not referenced */
+        ASSERT(. == 0x150, "The vector table needs to be 336 elements long!");
         _eisrvectors = .;
     } > isr
     
@@ -65,7 +65,7 @@ SECTIONS
         *(.ARM.attributes*)
     } > rom
     
-    .debub : 
+    .debug : 
     {
         *(.debug*)
     } > rom
@@ -98,9 +98,9 @@ SECTIONS
         PROVIDE_HIDDEN (__init_array_end = .);
     } > rom
     
-    .stm32.extromSection 0x08010000:
+    .stm.extromSection 0x08010000:
     {
-        KEEP(*(.stm32.extromSection)) /* keep my variable even if not referenced */
+        KEEP(*(.stm.extromSection)) /* keep my variable even if not referenced */
     } > extrom
     
     .data :

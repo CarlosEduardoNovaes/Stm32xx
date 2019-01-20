@@ -9,9 +9,9 @@ SUBDIRFILES = $(foreach dir,$(SUBDIRS),$(wildcard $(dir)/$(dir).o))
 
 
 # Build SUBDIRS
-.PHONY: clean subdirs $(SUBDIRS)
+.PHONY: clean subdirs strip $(SUBDIRS)
 
-all: app.elf
+all: app.elf app.dump.asm
 
 echotest:
 	@echo $(SUBDIRFILES)
@@ -30,7 +30,11 @@ app.bin:	app.elf
 	$(OBJCOPY) $< $@ -O binary
 
 app.elf: 	$(SUBDIRS)
-	$(LD)  -T  $(LINKER_FILE) -o $@   $(SUBDIRFILES) 
+	$(LD)  -T  $(LINKER_FILE) -o $@   $(SUBDIRFILES)
+
+strip: app.elf
+	$(STRIP) $<
+
 
 
 flash:	app.elf

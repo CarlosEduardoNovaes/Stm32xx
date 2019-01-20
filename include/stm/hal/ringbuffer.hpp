@@ -1,12 +1,12 @@
-#ifndef __STM32__HAL_RINGBUFFER_HPP__
-#define __STM32__HAL_RINGBUFFER_HPP__
+#ifndef __STM__HAL_RINGBUFFER_HPP__
+#define __STM__HAL_RINGBUFFER_HPP__
 
-#include <stddef.h>
+#include <cstddef>
 
-namespace stm32{
+namespace stm{
 namespace hal{
 
-template<typename T, size_t N>
+template<typename T, std::size_t N>
 class RingBuffer{
 public:
     RingBuffer(){
@@ -28,8 +28,8 @@ public:
         if (_elements>N) _overflow = true;
         
     };
-    inline size_t available(){
-        //stm32::registers::gpio::c::odr::reg::setOdr14(false);
+    inline std::size_t available(){
+        //stm::registers::gpio::c::odr::reg::setOdr14(false);
         return _elements;
     };
     inline  T read(){
@@ -49,7 +49,7 @@ public:
     T*      _head_ptr;
     T*      _tail_ptr;
     bool    _overflow;
-    size_t  _elements;
+    std::size_t  _elements;
 
    
 };
@@ -60,7 +60,7 @@ public:
 }; // hal namespace
     
     
-}; // stm32 namespace
+}; // stm namespace
 
 
-#endif // __STM32__HAL_RINGBUFFER_HPP__
+#endif // __STM__HAL_RINGBUFFER_HPP__

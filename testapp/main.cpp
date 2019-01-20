@@ -1,31 +1,36 @@
-#include <stm32xx/f103.hpp>
-#include <stm32xx/hal/usart.hpp>
+#include <stm/f103.hpp>
+#include <stm/hal/usart.hpp>
 
 
 
 
 
 
-template<bool BoolAlpha, bool FloatFormat, uint32_t Width>
+
+template<bool BoolAlpha, bool FloatFormat, std::uint32_t Width>
 struct iostream_dsc{
     static constexpr bool boolalpha = BoolAlpha;
     static constexpr bool floatformat = FloatFormat;
-    static constexpr uint32_t width = Width;
+    static constexpr std::uint32_t width = Width;
 };
 
-volatile int32_t foo_i;
-volatile float   foo_f;
-volatile float   foo_g[16];
+volatile std::int32_t foo_i;
+volatile long double   foo_f;
+volatile long double   foo_g[16];
 
 
 
 extern "C" void testa_cast(){
-    foo_i = static_cast<int32_t>(foo_f);
+    foo_i = static_cast<std::int32_t>(foo_f);
 };
 
 
 volatile bool time_elapsed = false;
-using Serial = stm32::hal::Usart_t<stm32::hal::usart1_descriptor, 9600, 64>;
+using Serial = stm::hal::Usart_t<   stm::hal::usart1_descriptor<stm::hal::USARTPIN::NO_REMAP>, 
+                                    9600, 
+                                    64, 
+                                    ::stm::iostream<stm::NumBase::Dec, 6, true>
+                                >;
 
 Serial* mySerial_ptr;
 
@@ -33,20 +38,20 @@ Serial* mySerial_ptr;
 
 
 
-// volatile  uint32_t ctes[10] ={
+// volatile  std::uint32_t ctes[10] ={
 //     2, 3, 5, 7, 11, 13, 17, 23, 29, 37
 // };
 
 volatile  uint8_t ctes[10] ={
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 };
-volatile  uint32_t ctes2[16] ={
+volatile  std::uint32_t ctes2[16] ={
     0, 2, 1, 3, 1, 4, 5, 6, 0, 2, 1, 3, 1, 4, 5, 6
 };
 
 
 
-using namespace stm32::registers;
+using namespace stm::registers;
 
 
 
@@ -54,7 +59,7 @@ using namespace stm32::registers;
 
 
 void delay ( void ){
-    volatile int count = 3'000 *100;
+    volatile int count = 3'0000 *3000;
     while ( count-- );
 //Reset Timer1 counter
 //     timer::t1::cnt::reg::value() = 0x0000;
@@ -73,6 +78,7 @@ int main(void) {
     foo_g[0]=10.9f;
     foo_i = 8;
     rcc_apb2enr::reg::setIopc(true);
+    
     
     
     gpio::c::crh::reg::setCnf13(gpio::CNF::GP_PUSH_PULL);
@@ -107,7 +113,7 @@ int main(void) {
     // Auto Preload not prebuffered
     timer::t1::cr1::reg::setArpe(false);
     // Auto Preload Value
-    timer::t1::arr::reg::value() = 200;
+    timer::t1::arr::reg::value() = 400;
     
     // Update Events generate interrupts
     timer::t1::dier::reg::setUie(true);
@@ -140,7 +146,7 @@ int main(void) {
     
 
     while(true){
-       for (int it_i=0; it_i<ctes[3]; it_i++){
+       for (int it_i=0; it_i<ctes[7]; it_i++){
            while(!time_elapsed);
            time_elapsed = false;
            gpio::c::odr::reg::setOdr13(false);
@@ -156,19 +162,20 @@ int main(void) {
         if (c>=0){
             //Serial::putc(c);
             //Serial::putc(c);
-            foo_f = 3.1415926;
-            mySerial << foo_f;
-            //foo_i = static_cast<int32_t>(foo_f);
-            //mySerial << static_cast<int32_t>(sizeof(float));
+            foo_f = -2e18;
+             mySerial << foo_f << "\n";
+            //foo_i = static_cast<std::int32_t>(foo_f);
+            mySerial << static_cast<int>(7);
+             //mySerial << 7;
             //Serial::putc(c);
             //mySerial << "\n" << foo_g[1];
             
             mySerial.putc('\n');
-            //gpio::c::odr::reg::setOdr14(false);
+            
         }
-        
+        gpio::c::odr::reg::setOdr14(false);
         bigdelay();
-        //gpio::c::odr::reg::setOdr14(true);
+        gpio::c::odr::reg::setOdr14(true);
         
         
    };
@@ -179,7 +186,7 @@ int main(void) {
 extern "C"  __attribute__ ((interrupt ("IRQ"))) void _tim1_up_isr_ (void)
 {
     time_elapsed = true;
-    stm32::registers::timer::t1::sr::reg::clearUif();
+    stm::registers::timer::t1::sr::reg::clearUif();
 };
 
 extern "C" __attribute__ ((interrupt ("IRQ"))) void _usart1_isr_ (void)
